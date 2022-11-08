@@ -6,13 +6,26 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:37:32 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/08 16:51:08 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:36:21 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_allocate_words(char const *s, char c, char **output)
+static int	entire_free(char **ptr, int i)
+{
+	while (i >= 0)
+	{
+		free(ptr[i]);
+		i--;
+	}
+	free(ptr);
+	return (0);
+}
+
+// It looks terrible, I had to free in another function
+// so it fits the norminette
+static int	ft_allocate_words(char const *s, char c, char **output)
 {
 	int	wordcount;
 	int	charcount;
@@ -34,7 +47,7 @@ int	ft_allocate_words(char const *s, char c, char **output)
 			}
 			output[wordcount] = malloc((charcount + 1) * sizeof(char));
 			if (!output[wordcount])
-				return (0);
+				return (entire_free(output, wordcount));
 			wordcount++;
 		}
 	}
@@ -42,7 +55,7 @@ int	ft_allocate_words(char const *s, char c, char **output)
 }
 
 // It allocated enough memory to the split's output
-char	**ft_prepare_split(char const *s, char c)
+static char	**ft_prepare_split(char const *s, char c)
 {
 	char	**output;
 	int		wordcount;
@@ -62,13 +75,15 @@ char	**ft_prepare_split(char const *s, char c)
 		}
 	}
 	output = malloc((wordcount + 1) * sizeof(char *));
+	if (!output)
+		return (NULL);
 	output[wordcount] = 0;
 	if (!ft_allocate_words(s, c, output))
 		return (NULL);
 	return (output);
 }
 
-void	ft_fill_words(char const *s, char c, char **output)
+static void	ft_fill_words(char const *s, char c, char **output)
 {
 	int		wordcount;
 	int		charcount;
