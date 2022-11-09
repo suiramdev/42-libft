@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:31:05 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/08 17:12:14 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:06:50 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		ft_memcmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
 
 int		ft_atoi(const char *nptr);
+char	*ft_itoa(int n);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 
