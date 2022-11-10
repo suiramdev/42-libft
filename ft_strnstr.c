@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 11:42:37 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/09 18:13:44 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:42:15 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (i < len && big[i])
 	{
 		j = 0;
-		while (big[i + j] == little[j] && little[j])
+		while (i + j < len && big[i + j] == little[j] && little[j])
 			j++;
 		if (!little[j])
 			return ((char *)big + i);
