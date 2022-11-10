@@ -6,7 +6,7 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/11/10 10:55:28 by mnouchet         ###   ########.fr       ##
+##   Updated: 2022/11/10 11:49:29 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -19,7 +19,8 @@ SOURCES = ft_strlen.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
 		  ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
 		  ft_memchr.c ft_memcmp.c ft_atoi.c ft_calloc.c \
 		  ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c \
-		  ft_split.c ft_itoa.c ft_strmapi.c
+		  ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+		  ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c
 
 INCLUDES = libft.h
 
