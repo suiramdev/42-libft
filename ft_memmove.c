@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 01:35:49 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/10/28 00:50:56 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:15:36 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!dest && !src)
+		return (NULL);
 	if (dest < src)
 		return (ft_memcpy(dest, src, n));
 	i = n;
