@@ -6,7 +6,7 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/11/10 11:49:29 by mnouchet         ###   ########.fr       ##
+##   Updated: 2022/11/11 13:36:37 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -24,7 +24,7 @@ SOURCES = ft_strlen.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
 
 INCLUDES = libft.h
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 OBJECTS = $(SOURCES:%.c=%.o)
