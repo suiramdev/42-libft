@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:04:51 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/07 15:06:45 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:44:42 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*cpy;
-	size_t		i;
+	size_t	s_len;
+	size_t	output_len;
+	char	*output;
+	size_t	i;
 
-	cpy = ft_calloc(len + 1, sizeof(char));
-	if (!cpy)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (cpy);
-	i = 0;
-	while (i < len && s[i])
+	output_len = 0;
+	s_len = ft_strlen(s);
+	if (start <= s_len)
 	{
-		cpy[i] = s[start + i];
+		output_len = s_len - start;
+		if (len < output_len)
+			output_len = len;
+	}
+	output = ft_calloc(output_len + 1, sizeof(char));
+	if (!output)
+		return (NULL);
+	i = 0;
+	while (i < output_len && s[i + start])
+	{
+		output[i] = s[i + start];
 		i++;
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	return (output);
 }
