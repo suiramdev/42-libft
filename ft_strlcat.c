@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 00:35:00 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/11 12:24:53 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/12 12:14:29 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (!dst && size <= 0)
 		return (size + src_l);
 	dst_l = ft_strlen(dst);
-	if (dst_l >= size - 1 || size <= 0)
+	if (dst_l > size - 1 || size <= 0)
 		return (size + src_l);
 	i = 0;
 	while (i < size - dst_l - 1 && src[i])
