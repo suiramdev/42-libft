@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:14:07 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/08 16:29:43 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:58:44 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1) - 1;
 	while (ft_strchr(set, s1[end]) != NULL && end > 0)
 		end--;
-	if (start >= end)
+	if (start > end)
 	{
 		output = malloc(1);
 		if (!output)
