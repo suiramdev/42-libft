@@ -6,7 +6,7 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/11/12 15:56:45 by mnouchet         ###   ########.fr       ##
+##   Updated: 2022/11/12 20:27:42 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -22,7 +22,7 @@ SOURCES = ft_strlen.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
 		  ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-SOURCES_BONUS = ft_lstnew.c
+SOURCES_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
