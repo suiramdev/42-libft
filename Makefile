@@ -6,7 +6,7 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/11/13 01:40:28 by mnouchet         ###   ########.fr       ##
+##   Updated: 2022/11/14 22:52:13 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -51,11 +51,4 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES)
-	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
-
-soclean: fclean
-	rm -rf a.out libft.so
-
-.PHONY: all bonus clean fclean re so soclean
+.PHONY: all bonus clean fclean re
