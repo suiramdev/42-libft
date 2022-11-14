@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 01:13:55 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/14 15:49:21 by mnouchet         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:22:19 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*first;
 	t_list	*new;
-	t_list	*prev;
 
 	first = NULL;
 	while (lst)
@@ -27,11 +26,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&first, del);
 			return (NULL);
 		}
-		if (!first)
-			first = new;
-		if (prev)
-			prev->next = new;
-		prev = new;
+		ft_lstadd_back(&first, new);
 		lst = lst->next;
 	}
 	return (first);
