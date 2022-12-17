@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strreplace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
+/*   By: marvin <42.fr>                             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 23:32:15 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/12/17 18:57:42 by marvin           ###   ########.fr       */
+/*   Created: 2022/12/17 19:00:15 by marvin            #+#    #+#             */
+/*   Updated: 2022/12/17 19:01:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_strreplace(char **a, char *b)
 {
-	size_t	i;
-
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (sizeof(char) * i);
+	free(*a);
+	*a = b;
 }
