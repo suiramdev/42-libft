@@ -6,49 +6,48 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/11/14 22:52:13 by mnouchet         ###   ########.fr       ##
+##   Updated: 2022/12/17 18:51:10 by marvin           ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
 NAME = libft.a
 
-SOURCES = ft_strlen.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
-		  ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_isupper.c \
-		  ft_islower.c ft_isalpha.c ft_isdigit.c ft_isascii.c \
-		  ft_isalnum.c ft_isprint.c ft_toupper.c ft_tolower.c \
-		  ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-		  ft_memchr.c ft_memcmp.c ft_atoi.c ft_calloc.c \
-		  ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c \
-		  ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+SOURCES_DIR = ./srcs
+SOURCES = converters/ft_atoi.c converters/ft_itoa.c \
+		  core/ft_split.c core/ft_strchr.c core/ft_strdup.c core/ft_striteri.c \
+		  core/ft_strjoin.c core/ft_strlcat.c core/ft_strlcpy.c core/ft_strlen.c \
+		  core/ft_strmapi.c core/ft_strncmp.c core/ft_strnstr.c core/ft_strrchr.c \
+		  core/ft_strtrim.c core/ft_substr.c core/ft_tolower.c core/ft_toupper.c \
+		  handlers/ft_bzero.c handlers/ft_calloc.c handlers/ft_memchr.c handlers/ft_memcmp.c \
+		  handlers/ft_memcpy.c handlers/ft_memmove.c handlers/ft_memset.c \
+		  verifiers/ft_isalnum.c verifiers/ft_isalpha.c verifiers/ft_isascii.c verifiers/ft_isdigit.c \
+		  verifiers/ft_islower.c verifiers/ft_isprint.c verifiers/ft_isupper.c
 
-SOURCES_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-				ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
-				ft_lstmap_bonus.c
+INCLUDES_DIR = ./includes
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+OBJECTS = $(addprefix $(SOURCES_DIR)/, $(SOURCES:%.c=%.o))
 
-OBJECTS = $(SOURCES:%.c=%.o)
-OBJECTS_BONUS = $(SOURCES_BONUS:%.c=%.o)
+CC = cc -Wall -Werror -Wextra
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) -I$(INCLUDES_DIR) -c $< -o $@
+	@echo "→ Compiling $<"
+
+
+$(NAME): $(OBJECTS)
+	@ar -rsc $@ $^
+	@echo "\033[0;32m✓ READY"
+
+clean:
+	@rm -f $(OBJECTS)
+	@echo "→ Removing objects"
+
+fclean: clean
+	@rm -f $(NAME)
+	@echo "→ Removing binaries"
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	ar -rsc $@ $^
-
-bonus: $(OBJECTS) $(OBJECTS_BONUS)
-	ar -rsc $(NAME) $^
-
-clean:
-	rm -f $(OBJECTS) $(OBJECTS_BONUS)
-
-fclean: clean
-	rm -f $(NAME)
-
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: clean fclean all re
