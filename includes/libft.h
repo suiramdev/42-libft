@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:31:05 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/12/17 19:05:32 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/02 14:43:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnjoin(char *s1, char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
-void	ft_strreplace(char **a, char *b);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_toupper(int c);
@@ -52,10 +51,11 @@ int		ft_memcmp(const char *s1, const char *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+void	ft_memrep(void **a, void *b);
 
 // loaders
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4096
+#  define BUFFER_SIZE 2
 # endif
 char	*ft_gnl(int fd);
 

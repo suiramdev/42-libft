@@ -6,7 +6,7 @@
 /*   By: marvin <42.fr>                             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 18:58:09 by marvin            #+#    #+#             */
-/*   Updated: 2022/12/17 19:05:41 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/02 14:48:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ static void	clear_buffer(char buffer[BUFFER_SIZE + 1])
 	}
 }
 
+// Something is wrong here, when the BUFFER_SIZE is too large, it fucked fdf maps.
 char	*ft_gnl(int fd)
 {
-	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
+	static char	buffer[BUFFER_SIZE + 1];
 	char		*output;
 	size_t		i;
 
@@ -34,20 +35,20 @@ char	*ft_gnl(int fd)
 		return (NULL);
 	output = NULL;
 	i = 0;
-	while (buffer[fd][i] && buffer[fd][i] != '\n')
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	if (buffer[fd][i] == '\n' && buffer[fd][i + 1])
-		ft_strreplace(&output, ft_strnjoin(output, buffer[fd] + i + 1, BUFFER_SIZE));
-	clear_buffer(buffer[fd]);
-	while (read(fd, buffer[fd], BUFFER_SIZE) > 0)
+	if (buffer[i] == '\n' && buffer[i + 1])
+		ft_memrep((void **)&output, ft_strnjoin(output, buffer + i + 1, BUFFER_SIZE));
+	clear_buffer(buffer);
+	while (read(fd, buffer, BUFFER_SIZE) > 0)
 	{
 		i = 0;
-		while (buffer[fd][i] && buffer[fd][i] != '\n')
+		while (buffer[i] && buffer[i] != '\n')
 			i++;
-		ft_strreplace(&output, ft_strnjoin(output, buffer[fd], i + 1));
-		if (buffer[fd][i] == '\n')
+		ft_memrep((void **)&output, ft_strnjoin(output, buffer, i + 1));
+		if (buffer[i] == '\n')
 			break ;
-		clear_buffer(buffer[fd]);
+		clear_buffer(buffer);
 	}
 	return (output);
 }

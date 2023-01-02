@@ -6,7 +6,7 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/12/17 19:04:43 by marvin           ###   ########.fr       ##
+##   Updated: 2022/12/31 20:40:38 by marvin           ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -17,10 +17,10 @@ SOURCES = converters/ft_atoi.c converters/ft_itoa.c \
 		  core/ft_split.c core/ft_strchr.c core/ft_strdup.c core/ft_striteri.c \
 		  core/ft_strjoin.c core/ft_strlcat.c core/ft_strlcpy.c core/ft_strlen.c \
 		  core/ft_strmapi.c core/ft_strncmp.c core/ft_strnjoin.c core/ft_strnstr.c \
-		  core/ft_strrchr.c core/ft_strreplace.c \
-		  core/ft_strtrim.c core/ft_substr.c core/ft_tolower.c core/ft_toupper.c \
+		  core/ft_strrchr.c core/ft_strtrim.c core/ft_substr.c core/ft_tolower.c core/ft_toupper.c \
 		  handlers/ft_bzero.c handlers/ft_calloc.c handlers/ft_memchr.c handlers/ft_memcmp.c \
-		  handlers/ft_memcpy.c handlers/ft_memmove.c handlers/ft_memset.c \
+		  handlers/ft_memcpy.c handlers/ft_memmove.c handlers/ft_memset.c handlers/ft_memrep.c \
+		  loaders/ft_gnl.c \
 		  verifiers/ft_isalnum.c verifiers/ft_isalpha.c verifiers/ft_isascii.c verifiers/ft_isdigit.c \
 		  verifiers/ft_islower.c verifiers/ft_isprint.c verifiers/ft_isupper.c
 
@@ -37,7 +37,7 @@ CC = cc -Wall -Werror -Wextra
 
 $(NAME): $(OBJECTS)
 	@ar -rsc $@ $^
-	@echo "\033[0;32m✓ READY"
+	@echo "\033[0;32m✓ $(NAME) READY"
 
 clean:
 	@rm -f $(OBJECTS)
