@@ -3,52 +3,123 @@
 ##                                                        :::      ::::::::   ##
 ##   Makefile                                           :+:      :+:    :+:   ##
 ##                                                    +:+ +:+         +:+     ##
-##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
+##   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
-##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2023/01/06 22:57:16 by mnouchet         ###   ########.fr       ##
+##   Created: 2023/01/06 22:19:57 by mnouchet          #+#    #+#             ##
+##   Updated: 2023/01/06 23:10:07 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
-NAME = libft.a
+NAME		:= libft.a
 
-SOURCES_DIR = ./srcs
-SOURCES = converters/ft_atoi.c converters/ft_itoa.c converters/ft_abs.c \
-		  core/ft_split.c core/ft_strchr.c core/ft_strdup.c core/ft_striteri.c \
-		  core/ft_strjoin.c core/ft_strlcat.c core/ft_strlcpy.c core/ft_strlen.c \
-		  core/ft_strmapi.c core/ft_strncmp.c core/ft_strnjoin.c core/ft_strnstr.c \
-		  core/ft_strrchr.c core/ft_strtrim.c core/ft_substr.c core/ft_tolower.c core/ft_toupper.c \
-		  handlers/ft_bzero.c handlers/ft_calloc.c handlers/ft_memchr.c handlers/ft_memcmp.c \
-		  handlers/ft_memcpy.c handlers/ft_memmove.c handlers/ft_memset.c handlers/ft_memrep.c \
-		  loaders/ft_gnl.c \
-		  verifiers/ft_isalnum.c verifiers/ft_isalpha.c verifiers/ft_isascii.c verifiers/ft_isdigit.c \
-		  verifiers/ft_islower.c verifiers/ft_isprint.c verifiers/ft_isupper.c
+## ########################################################################## ##
+#   INGREDIENTS																  ##
+## ########################################################################## ##
+# INCS			header file locations
+#
+# SRCS_DIR		source directory
+# SRCS			source files
+#
+# BUILD_DIR		build directory
+# OBJS			object files
+#
+# CC			compiler
+# CFLAGS		compiler flags
+# CPPFLAGS		preprocessor flags
+# LDFLAGS		linker flags
+# LDLIBS		libraries name
 
-INCLUDES_DIR = ./includes
+INCS		:= includes
 
-OBJECTS = $(addprefix $(SOURCES_DIR)/, $(SOURCES:%.c=%.o))
+SRCS_DIR	:= srcs
+SRCS		:= converters/ft_abs.c		\
+			   converters/ft_atoi.c		\
+			   converters/ft_itoa.c		\
+			   core/ft_split.c			\
+			   core/ft_strchr.c			\
+			   core/ft_strdup.c			\
+			   core/ft_striteri.c		\
+			   core/ft_strjoin.c		\
+			   core/ft_strlcat.c		\
+			   core/ft_strlcpy.c		\
+			   core/ft_strlen.c			\
+			   core/ft_strmapi.c		\
+			   core/ft_strncmp.c		\
+			   core/ft_strnjoin.c		\
+			   core/ft_strnstr.c		\
+			   core/ft_strnstr.c		\
+			   core/ft_strrchr.c		\
+			   core/ft_strtrim.c		\
+			   core/ft_substr.c			\
+			   core/ft_tolower.c		\
+			   core/ft_toupper.c		\
+			   handlers/ft_bzero.c		\
+			   handlers/ft_calloc.c		\
+			   handlers/ft_memchr.c		\
+			   handlers/ft_memcmp.c		\
+			   handlers/ft_memcpy.c		\
+			   handlers/ft_memmove.c	\
+			   handlers/ft_memrep.c		\
+			   handlers/ft_memset.c		\
+			   loaders/ft_gnl.c			\
+			   verifiers/ft_isalnum.c	\
+			   verifiers/ft_isalpha.c	\
+			   verifiers/ft_isascii.c	\
+			   verifiers/ft_isdigit.c	\
+			   verifiers/ft_islower.c	\
+			   verifiers/ft_isprint.c	\
+			   verifiers/ft_isupper.c
+			   
 
-CC = cc -Wall -Werror -Wextra
+SRCS		:= $(SRCS:%=$(SRCS_DIR)/%)
 
-%.o: %.c
-	@$(CC) -I$(INCLUDES_DIR) -c $< -o $@
-	@echo "→ Compiling $<"
+BUILD_DIR	:= .build
+OBJS		:= $(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror	
+CPPFLAGS    := $(INCS:%=-I%)
 
-$(NAME): $(OBJECTS)
-	@ar -rsc $@ $^
-	@echo "\033[0;32m✓ $(NAME) READY"
+## ########################################################################## ##
+#   UTENSILS																  ##
+## ########################################################################## ##
+# RM			force remove
+# MAKEFLAGS		make flags
+# DIR_UP		duplicate directory tree
 
-clean:
-	@rm -f $(OBJECTS)
-	@echo "→ Removing objects"
+RM          := rm -f
+MAKEFLAGS   += --silent --no-print-directory
+DIR_DUP     = mkdir -p $(@D)
 
-fclean: clean
-	@rm -f $(NAME)
-	@echo "→ Removing binaries"
+## ########################################################################## ##
+#   RECIPES																	  ##
+## ########################################################################## ##
+# all			default goal
+# $(NAME)		link .o -> archive
+# %.o			compilation .c -> .o
+# clean			remove .o
+# fclean		remove .o + binary
+# re			remake default goal
+
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
+	echo "→ Compiling $<"
+	$(DIR_DUP)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ 
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	@ar -rsc $@ $^
+	echo "\033[0;32m✓ $@ READY"
+
+clean:
+	echo "→ Removing objects"
+	$(RM) $(OBJS)
+
+fclean: clean
+	echo "→ Removing binaries"
+	$(RM) $(NAME)
+
 re: fclean all
 
-.PHONY: clean fclean all re
+.PHONY: re
