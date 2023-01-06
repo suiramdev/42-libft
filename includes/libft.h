@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:31:05 by mnouchet          #+#    #+#             */
-/*   Updated: 2023/01/02 14:43:34 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/06 22:58:11 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 // converters
 int	ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
+int	ft_abs(int n);
 
 // core
 char	**ft_split(char const *s, char c);

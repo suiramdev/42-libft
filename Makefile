@@ -6,14 +6,14 @@
 ##   By: mnouchet <mnouchet>                        +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2022/10/27 13:35:58 by mnouchet          #+#    #+#             ##
-##   Updated: 2022/12/31 20:40:38 by marvin           ###   ########.fr       ##
+##   Updated: 2023/01/06 22:57:16 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
 NAME = libft.a
 
 SOURCES_DIR = ./srcs
-SOURCES = converters/ft_atoi.c converters/ft_itoa.c \
+SOURCES = converters/ft_atoi.c converters/ft_itoa.c converters/ft_abs.c \
 		  core/ft_split.c core/ft_strchr.c core/ft_strdup.c core/ft_striteri.c \
 		  core/ft_strjoin.c core/ft_strlcat.c core/ft_strlcpy.c core/ft_strlen.c \
 		  core/ft_strmapi.c core/ft_strncmp.c core/ft_strnjoin.c core/ft_strnstr.c \
