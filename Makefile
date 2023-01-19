@@ -6,7 +6,7 @@
 ##   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        ##
 ##                                                +#+#+#+#+#+   +#+           ##
 ##   Created: 2023/01/06 22:19:57 by mnouchet          #+#    #+#             ##
-##   Updated: 2023/01/06 23:10:07 by mnouchet         ###   ########.fr       ##
+##   Updated: 2023/01/19 01:11:52 by mnouchet         ###   ########.fr       ##
 ##                                                                            ##
 ## ########################################################################## ##
 
@@ -35,6 +35,7 @@ SRCS_DIR	:= srcs
 SRCS		:= converters/ft_abs.c		\
 			   converters/ft_atoi.c		\
 			   converters/ft_itoa.c		\
+			   converters/ft_lerp.c		\
 			   core/ft_split.c			\
 			   core/ft_strchr.c			\
 			   core/ft_strdup.c			\
