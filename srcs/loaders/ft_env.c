@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 23:30:12 by mnouchet          #+#    #+#             */
-/*   Updated: 2023/02/04 19:47:50 by mnouchet         ###   ########.fr       */
+/*   Updated: 2023/02/05 00:25:33 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ char	**ft_env(char *name)
 	while (env && *env)
 	{
 		i = 0;
-		while (*env[i] == name[i])
+		while (*(*env + i) == name[i])
 			i++;
-		if (*env[i] == '=')
-			return (ft_split(*env, ':'));
+		if (*(*env + i) == '=')
+			return (ft_split(*env + i + 1, ':'));
 		env++;
 	}
 	return (NULL);
