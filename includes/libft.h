@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
+/*   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:31:05 by mnouchet          #+#    #+#             */
-/*   Updated: 2023/01/19 01:04:16 by mnouchet         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:48:00 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
 # include <stdint.h>
 # include <stdio.h>
-# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 // converters
 int		ft_atoi(const char *nptr);
@@ -30,7 +30,7 @@ int		ft_lerp(int a, int b, int t);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
@@ -60,6 +60,7 @@ void	ft_memrep(void **a, void *b);
 #  define BUFFER_SIZE 2
 # endif
 char	*ft_gnl(int fd);
+char	**ft_env(char *name);
 
 // verifiers
 int		ft_isupper(int c);
