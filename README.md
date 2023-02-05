@@ -2,4 +2,8 @@
 
 # libft
 
+libft is a library that I use for 42 school projects that are C coded.
+
+## The branches
+
 This repository is separated into two branches. The main one is the stable version, while the `project` branch is the moulinette version.
