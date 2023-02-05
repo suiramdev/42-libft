@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gnl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <42.fr>                             +#+  +:+       +#+        */
+/*   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 18:58:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/01/02 14:48:47 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/06 00:35:43 by mnouchet          #+#    #+#             */
+/*   Updated: 2023/02/06 00:37:53 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	clear_buffer(char buffer[BUFFER_SIZE + 1])
 	}
 }
 
-// Something is wrong here, when the BUFFER_SIZE is too large, it fucked fdf maps.
+// Something is wrong here, when the BUFFER_SIZE is too large,
+// it fucked fdf maps.
 char	*ft_gnl(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
@@ -38,7 +39,8 @@ char	*ft_gnl(int fd)
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (buffer[i] == '\n' && buffer[i + 1])
-		ft_memrep((void **)&output, ft_strnjoin(output, buffer + i + 1, BUFFER_SIZE));
+		ft_memrep((void **)&output,
+			ft_strnjoin(output, buffer + i + 1, BUFFER_SIZE));
 	clear_buffer(buffer);
 	while (read(fd, buffer, BUFFER_SIZE) > 0)
 	{

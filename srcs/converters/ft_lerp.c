@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 01:01:48 by mnouchet          #+#    #+#             */
-/*   Updated: 2023/01/19 01:40:53 by mnouchet         ###   ########.fr       */
+/*   Created: 2023/02/06 00:38:13 by mnouchet          #+#    #+#             */
+/*   Updated: 2023/02/06 00:38:46 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_lerp(int a, int b, int t)
 {
-    return a + (b - a) * (float)(t / 255.0f);
+	return (a + (b - a) * (float)(t / 255.0f));
 }

@@ -6,7 +6,7 @@
 /*   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:31:05 by mnouchet          #+#    #+#             */
-/*   Updated: 2023/02/04 19:48:00 by mnouchet         ###   ########.fr       */
+/*   Updated: 2023/02/06 00:39:12 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_memrep(void **a, void *b);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2
 # endif
+
 char	*ft_gnl(int fd);
 char	**ft_env(char *name);
 
