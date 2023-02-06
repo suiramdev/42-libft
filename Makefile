@@ -6,7 +6,7 @@
 #    By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 22:19:57 by mnouchet          #+#    #+#              #
-#    Updated: 2023/02/04 19:48:08 by mnouchet         ###   ########.fr        #
+#    Updated: 2023/02/06 18:18:33 by mnouchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,12 +103,12 @@ DIR_DUP     = mkdir -p $(@D)
 # fclean		remove .o + binary
 # re			remake default goal
 
+all: $(NAME)
+
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	echo "→ Compiling $<"
 	$(DIR_DUP)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ 
-
-all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar -rsc $@ $^
