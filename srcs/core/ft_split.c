@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnouchet <mnouchet>                        +#+  +:+       +#+        */
+/*   By: mnouchet <mnouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:37:32 by mnouchet          #+#    #+#             */
-/*   Updated: 2022/11/08 17:36:21 by mnouchet         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:41:40 by mnouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char	**ft_prepare_split(char const *s, char c)
 	output = malloc((wordcount + 1) * sizeof(char *));
 	if (!output)
 		return (NULL);
-	output[wordcount] = 0;
+	output[wordcount] = NULL;
 	if (!ft_allocate_words(s, c, output))
 		return (NULL);
 	return (output);
