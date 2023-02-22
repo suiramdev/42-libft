@@ -25,6 +25,7 @@ int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
 int		ft_abs(int n);
 int		ft_lerp(int a, int b, int t);
+long	ft_atol(const char *nptr);
 
 // core
 char	**ft_split(char const *s, char c);
@@ -71,5 +72,7 @@ int		ft_isdigit(int c);
 int		ft_isascii(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
+int		ft_issign(int c);
 
 #endif
