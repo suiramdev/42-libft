@@ -36,6 +36,7 @@ SRCS		:= converters/ft_abs.c		\
 			   converters/ft_atoi.c		\
 			   converters/ft_itoa.c		\
 			   converters/ft_lerp.c		\
+			   converters/ft_atol.c		\
 			   core/ft_split.c			\
 			   core/ft_strchr.c			\
 			   core/ft_strdup.c			\
@@ -70,7 +71,9 @@ SRCS		:= converters/ft_abs.c		\
 			   verifiers/ft_isdigit.c	\
 			   verifiers/ft_islower.c	\
 			   verifiers/ft_isprint.c	\
-			   verifiers/ft_isupper.c
+			   verifiers/ft_isupper.c	\
+			   verifiers/ft_isspace.c	\
+			   verifiers/ft_issign.c
 			   
 
 SRCS		:= $(SRCS:%=$(SRCS_DIR)/%)
