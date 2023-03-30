@@ -115,7 +115,7 @@ $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 
 $(NAME): $(OBJS)
 	@ar -rsc $@ $^
-	echo "\033[0;32m✓ $@ READY"
+	echo "\033[0;32m✓ $@ READY\033[0m"
 
 clean:
 	echo "→ Removing objects"
